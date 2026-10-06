@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 삭제 확인 | 나만의 게시판</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/" class="brand-logo">📋 나만의 게시판</a>
+            <nav class="nav-links">
+                <a href="/">목록</a>
+                <a href="/login">로그인</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h2>게시글 삭제</h2>
+            <div class="alert alert-error" style="margin-top: 20px;">
+                <p>정말로 <strong>"{{ post.title }}"</strong> 글을 삭제하시겠습니까?</p>
+                <p style="font-size: 0.85rem; margin-top: 4px; color: #991b1b;">삭제된 게시글은 다시 복구할 수 없습니다.</p>
+            </div>
+
+            <form action="/board/{{ post.id }}/delete" method="post" style="margin-top: 24px;">
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-danger">삭제 확인</button>
+                    <a href="/board/{{ post.id }}" class="btn btn-secondary">취소</a>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

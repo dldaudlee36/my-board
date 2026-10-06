@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} | 나만의 게시판</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/" class="brand-logo">📋 나만의 게시판</a>
+            <nav class="nav-links">
+                <a href="/">목록</a>
+                <a href="/login">로그인</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <div class="detail-header">
+                <h2>{{ post.title }}</h2>
+                <div class="detail-meta">
+                    <span>글 번호: <strong>#{{ post.id }}</strong></span>
+                </div>
+            </div>
+
+            <div class="post-body">{{ post.body }}</div>
+
+            <div class="actions">
+                <a href="/" class="btn btn-secondary">목록으로</a>
+                <a href="/board/{{ post.id }}/edit" class="btn btn-primary">수정하기</a>
+                <a href="/board/{{ post.id }}/delete" class="btn btn-danger">삭제하기</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

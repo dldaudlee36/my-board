@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 목록 | 나만의 게시판</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/" class="brand-logo">📋 나만의 게시판</a>
+            <nav class="nav-links">
+                <a href="/">목록</a>
+                <a href="/login">로그인</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <div class="header-row">
+                <div>
+                    <h1>게시글 목록</h1>
+                    <p class="subtitle">전체 등록된 게시글을 확인할 수 있습니다.</p>
+                </div>
+                <a href="/board/new" class="btn btn-primary">+ 새 글 작성</a>
+            </div>
+
+            {% if posts %}
+            <ul class="post-list">
+                {% for post in posts %}
+                <li class="post-item">
+                    <span class="post-id-badge">#{{ post.id }}</span>
+                    <a href="/board/{{ post.id }}" class="post-title-link">{{ post.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <div class="empty-state">
+                <p>등록된 게시글이 없습니다.</p>
+            </div>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>
